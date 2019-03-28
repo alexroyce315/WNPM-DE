@@ -196,7 +196,7 @@ GOTO :EOF
 	ECHO.
 	ECHO.  正在启动 MySQL
 	IF EXIST mysql/bin/mysqld.exe (
-        RunHiddenConsole.exe mysql\bin\mysqld --defaults-file=mysql\my.ini --standalone --console
+        RunHiddenConsole.exe mysql/bin/mysqld.exe --defaults-file=mysql/my.ini --standalone --console
     )
     tasklist /nh|FIND /i "mysqld.exe">nul
 	IF NOT ERRORLEVEL 1 ECHO.  MySQL 已经启动 <nul
@@ -244,7 +244,7 @@ GOTO :EOF
         PAUSE
         EXIT
     )
-	IF NOT EXIST mysql/bin/mysqld.exe (
+    IF NOT EXIST mysql/bin/mysqld.exe (
         ECHO mysql/bin/mysqld.exe 不存在
         PAUSE
         EXIT
